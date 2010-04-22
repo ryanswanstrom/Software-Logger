@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+GET     /levels                                 Levels.list
+GET     /levels/new                             Levels.blank
+GET     /logmessages                            LogMessages.list
+GET     /logmessages/new                        LogMessages.blank
+GET     /projects                               Projects.list
+GET     /projects/new                           Projects.blank
+GET     /levels/{id}                            Levels.show
+GET     /logmessages/{id}                       LogMessages.show
+GET     /projects/{id}                          Projects.show
+GET     /addMore                                Application.addMore
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

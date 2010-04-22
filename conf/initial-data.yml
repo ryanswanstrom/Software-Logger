@@ -1,0 +1,54 @@
+## YAML Template.
+---
+
+LogLevel(fine):
+  value: 100
+  title: fine
+  description: Very fine detail
+
+LogLevel(debug):
+  value: 200
+  title: debug
+  description: Debug level
+
+LogLevel(info):
+  value: 300
+  title: info
+  description: Informational messages
+
+LogLevel(warn):
+  value: 400
+  title: warn
+  description: A warning message
+
+LogLevel(error):
+  value: 500
+  title: error
+  description: An error message that will halt normal progress
+
+LogLevel(fatal):
+  value: 600
+  title: fatal
+  description: Program will crash
+
+Project(Test1):
+  title: First Test Project
+  description: The is an initial testing project
+
+Project(Test2):
+  title: Second Test Project
+  description: The is a second testing project
+
+LogMessage(message1):
+  title: Welcome
+  message: Welcome to swlogger!
+  messageTime: 2009-02-28 01:34:12
+  project: Test1
+  level: info
+
+LogMessage(message2):
+  title: Welcome Again
+  message: Welcome to swlogger!
+  messageTime: 2009-02-28 04:34:12
+  project: Test2
+  level: fatal

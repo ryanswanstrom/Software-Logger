@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}" />
+        <!--link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}" /-->
+    </head>
+    <body>
+        <div id="header">
+          <h1><a href="@{Application.index()}">swlogger</a></h1>
+            <h2>A Central Place for all your Software Logs</h2>
+            <div id="login_div">
+                #{if session.get("user_id")}
+                    <a href="@{Application.logout}">Logout</a>  <!-- ${session.get("user_id")} -->
+                #{/if}
+                #{else}
+                    <a href="@{Application.authenticate}"><img src="http://l.yimg.com/a/i/reg/openid/buttons/15.png" /></a>
+                #{/else}
+            </div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li class="first"><a href="@{Application.features()}">Features</a></li>
+                <li><a href="@{Application.about()}">About</a></li>
+                <li><a href="@{LogMessages.list()}">Messages</a></li>
+                <li><a href="@{Projects.list()}">Projects</a></li>
+                <li><a href="@{LogLevels.list()}">Levels</a></li>
+                <li><a href="@{Application.addMore()}">addMore</a></li>
+            </ul>
+        </div>
+
+        <div id ="page">
+            <!-- page content goes here -->
+            #{doLayout /}
+        </div>
+        <!--
+                #{form @Application.addMore()}
+                <p>
+                    <label for="author">Message: </label>
+                    <textarea name="message" id="message" ></textarea>
+                </p>
+                <p>
+                    <input type="submit" value="Submit your comment" />
+                </p>
+                #{/form}
+        -->
+        #{form @Projects.createProj()}
+                <p>
+                    <label for="author">Title </label>
+                    <input type="text" name="title" id="title" />
+                </p>
+                <p>
+                    <label for="author">Description </label>
+                    <textarea name="description" id="description" ></textarea>
+                </p>
+                <p>
+                    <input type="submit" value="Submit your comment" />
+                </p>
+                #{/form}
+        <div id="footer">
+            <p class="legal">&copy;2009 All Rights Reserved.</p>
+            <p class="credit">Design Modified from <a target="new" href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+        </div>
+    </body>
+</html>
