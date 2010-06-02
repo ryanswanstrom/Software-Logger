@@ -116,6 +116,10 @@ hr {
 	color: #858585;
 }
 
+#title_div {
+    float: left;
+}
+
 #login_div {
     float: right;
 }
