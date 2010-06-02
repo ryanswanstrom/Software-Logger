@@ -1,18 +1,23 @@
 package controllers;
 
 import java.util.Date;
+import java.util.Random;
 import models.LogLevel;
 import models.LogMessage;
 import models.Project;
 import models.User;
 import play.libs.OpenID;
 import play.libs.OpenID.UserInfo;
-import play.mvc.*;
+import play.mvc.Controller;
 import play.mvc.Http.Request;
 
 public class Application extends Controller {
 
     public static void index() {
+        if (session.contains("forwardURL")) {
+            redirect(session.get("forwardURL"));
+            session.remove("forwardURL");
+        }
         render();
     }
 
@@ -46,8 +51,9 @@ public class Application extends Controller {
             }
         } else {
             // Verify the id
-            String act = Request.current().action;
+            String act = session.get("forwardURL");
             System.out.println("going to yahoo: " + act);
+            System.out.println("going to yahoo Request: " + Request.current().getBase());
             if (!OpenID.id("https://me.yahoo.com").required("email",
                     "http://axschema.org/contact/email").verify()) {
                 flash.put("error", "Oops. Cannot contact yahoo");
@@ -59,6 +65,7 @@ public class Application extends Controller {
 
 
     public static void addMore(String message) {
+        long start = System.currentTimeMillis();
         for (int i = 0; i < 10; i++) {
             Project p = new Project();
             p.title = "Project " + i;
@@ -75,6 +82,11 @@ public class Application extends Controller {
             }
 
         }
+        long end = System.currentTimeMillis();
+        long total = end - start;
+        System.out.println("time for 1000 adds to DB is " + total);
+        // Add WS call to enter time info
         Application.index();
     }
+    
 }

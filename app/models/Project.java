@@ -10,7 +10,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import play.data.validation.Required;
-import play.db.jpa.JPASupport;
 
 /**
  *
@@ -29,7 +28,7 @@ public class Project extends SwloggerModel {
     public List<UserProject> userProjects;
 
     public Project() {
-        this(null, null);
+        this("Default", "No Description");
     }
 
     public Project(String title, String desc) {
