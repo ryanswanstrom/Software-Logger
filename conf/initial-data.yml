@@ -30,25 +30,25 @@ LogLevel(fatal):
   value: 600
   title: fatal
   description: Program will crash
-
-Project(Test1):
-  title: First Test Project
-  description: The is an initial testing project
-
-Project(Test2):
-  title: Second Test Project
-  description: The is a second testing project
-
-LogMessage(message1):
-  title: Welcome
-  message: Welcome to swlogger!
-  messageTime: 2009-02-28 01:34:12
-  project: Test1
-  level: info
-
-LogMessage(message2):
-  title: Welcome Again
-  message: Welcome to swlogger!
-  messageTime: 2009-02-28 04:34:12
-  project: Test2
-  level: fatal
+#
+#Project(Test1):
+#  title: First Test Project
+#  description: The is an initial testing project
+#
+#Project(Test2):
+#  title: Second Test Project
+#  description: The is a second testing project
+#
+#LogMessage(message1):
+#  title: Welcome
+#  message: Welcome to swlogger!
+#  messageTime: 2009-02-28 01:34:12
+#  project: Test1
+#  level: info
+#
+#LogMessage(message2):
+#  title: Welcome Again
+#  message: Welcome to swlogger!
+#  messageTime: 2009-02-28 04:34:12
+#  project: Test2
+#  level: fatal
