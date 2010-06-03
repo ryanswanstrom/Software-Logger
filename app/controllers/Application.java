@@ -1,7 +1,6 @@
 package controllers;
 
 import java.util.Date;
-import java.util.Random;
 import models.LogLevel;
 import models.LogMessage;
 import models.Project;
@@ -15,8 +14,9 @@ public class Application extends Controller {
 
     public static void index() {
         if (session.contains("forwardURL")) {
-            redirect(session.get("forwardURL"));
+            String redirectPage = session.get("forwardURL");
             session.remove("forwardURL");
+            redirect(redirectPage);
         }
         render();
     }
