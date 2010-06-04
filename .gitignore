@@ -1,1 +1,4 @@
 conf/application.conf
+logs*
+tmp*
+nbproject*
