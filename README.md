@@ -5,7 +5,7 @@ git clone git@github.com:GooF/Software-Logger
 
 cd Software-Logger
 
-#git update-index --assume-unchanged conf/application.conf
+git update-index --assume-unchanged conf/application.conf
 
 play secret
 
