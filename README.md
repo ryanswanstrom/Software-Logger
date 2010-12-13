@@ -1,7 +1,7 @@
 This is a software logging application built with
 the play framework.
 
-git clone git@github.com:GooF/Software-Logger
+git clone git@github.com:swGooF/Software-Logger
 
 cd Software-Logger
 
